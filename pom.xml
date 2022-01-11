@@ -12,10 +12,10 @@
     <artifactId>user_demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>user_demo</name>
+    <description>user_demo</description>
     <!-- ===================================================================== -->
     <packaging>war</packaging>
     <!-- ===================================================================== -->
-    <description>user_demo</description>
     <properties>
         <java.version>11</java.version>
     </properties>
