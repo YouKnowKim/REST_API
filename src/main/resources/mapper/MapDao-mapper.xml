@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+<mapper namespace="MapDao">
+	<insert id="insertMap" parameterType="MapVo">
+		INSERT INTO map (address_name, category_group_code, category_group_name, 
+		category_name, distance, id, phone, place_name, place_url, road_address_name, x, y)
+		VALUES (#{address_name}, #{category_group_code}, #{category_group_name},
+		#{category_name}, #{distance}, #{id}, #{phone}, #{place_name}, #{place_url}, #{road_address_name}, #{x}, #{y})
+	</insert>
+	
+	<resultMap id="selectMapVoResultMap" type="MapVo"> 
+		<result property="map_no" column="map_no" />
+		<result property="address_name" column="address_name" />
+		<result property="category_group_code" column="category_group_code" />
+		<result property="category_group_name" column="category_group_name" />
+		<result property="category_name" column="category_name" />
+		<result property="distance" column="distance" />
+		<result property="id" column="id" />
+		<result property="phone" column="phone" />
+		<result property="place_name" column="place_name" />
+		<result property="place_url" column="place_url" />
+		<result property="road_address_name" column="road_address_name" />
+		<result property="x" column="x" />
+		<result property="y" column="y" />
+	</resultMap>
+	
+	<select id="selectMap" parameterType="int" resultMap="selectMapVoResultMap">
+		SELECT map_no, address_name, category_group_code, category_group_name, 
+		category_name, distance, id, phone, place_name, place_url, road_address_name, x, y
+		FROM map WHERE map_no = #{map_no}
+	</select>
+	
+	<select id="selectAllMaps" parameterType="int" resultMap="selectMapVoResultMap">
+		SELECT map_no, address_name, category_group_code, category_group_name, 
+		category_name, distance, id, phone, place_name, place_url, road_address_name, x, y
+		FROM map
+	</select>
+	
+	<select id="selectLastInsertID" resultType="int">
+		SELECT LAST_INSERT_ID();
+	</select>
+	
+	<update id="updateMap" parameterType="MapVo">
+		UPDATE map SET address_name = #{address_name}, category_group_code = #{category_group_code}, 
+		category_group_name = #{category_group_name},
+		category_name = #{category_name}, distance = #{distance}, id = #{id},
+		phone = #{phone}, place_name = #{place_name}, place_url = #{place_url},
+		road_address_name = #{road_address_name}, x = #{x}, y = #{y}
+		WHERE map_no = #{map_no}
+	</update>
+	
+	<delete id="deleteMap" parameterType="int">
+		DELETE FROM map WHERE map_no = #{map_no}
+	</delete>
+</mapper>
