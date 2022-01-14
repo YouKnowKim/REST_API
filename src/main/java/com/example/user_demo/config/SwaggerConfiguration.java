@@ -25,7 +25,7 @@ import java.util.*;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfiguration {
-    private static final Contact contact = new Contact("kso", "https://www.megazone.com/", "ks@mz.co.kr");
+    private static final Contact contact = new Contact("YouKnowKim", "https://github.com/YouKnowKim/REST_API", "h3969@naver.com");
     private static final Set<String> sets = new HashSet<>(Arrays.asList("application/json"));
 
 
@@ -54,9 +54,10 @@ public class SwaggerConfiguration {
     }
 
     private ApiInfo apiInfo() {
-        String description = "사용자 REST API 목록입니다.";
+        String description = "REST API 목록입니다.";
         return new ApiInfoBuilder()
-                .title("USER REST API List")
+                .title("REST API List")
+                .contact(contact)
                 .description(description)
                 .version("1.0")
                 .build();
